@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Settings.
+
+   Global variables and config. Fonts, colors, breakpoints etc.
+   ========================================================================== */
+
+$clr-text:  #ffffff;
+$clr-body:  #5f6b78;
+$clr-one:   #ea4e5d;
+$clr-two:   #ad9fcd;
+$clr-three: #88cdd3;
+$clr-four:  #ffe200;
+$clr-five:  #ffd18b;
+$clr-six:   #7cc576;
+
+$breakpoints: (
+  'mobile': ( max-width:  767px ),
+  'tablet': ( max-width:  1025px )
+) !default;
+
+$gtd: .75s;

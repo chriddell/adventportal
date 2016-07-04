@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Components -> Lists
+
+   List styles.
+   ========================================================================== */
+
+.step__menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.step__menu__item {
+  height: 33.33vh;
+  position: relative;
+}
+
+/**
+ * Quantity query
+ * Define height of step__menu__item based on no. of <li> elements present in DOM
+ */
+.step__menu__item:nth-last-child(-n+1):first-child, 
+.step__menu__item:nth-last-child(-n+1):first-child ~ .step__menu__item {
+  height: 100vh;
+}
+.step__menu__item:nth-last-child(-n+2):first-child, 
+.step__menu__item:nth-last-child(-n+2):first-child ~ .step__menu__item {
+  height: 50vh;
+}

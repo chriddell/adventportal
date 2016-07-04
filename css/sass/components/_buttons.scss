@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Components -> Buttons
+
+   Button styling.
+   Nb. these are not necessarily <button> elements
+   ========================================================================== */
+
+.btn {
+  padding: 15px;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color $gtd / 3 ease, color $gtd / 3 ease;
+}
+
+.btn:hover {
+  background-color: white;
+}
+
+.bg-color-one .btn:hover {
+  color: $clr-one;
+}
+.bg-color-two .btn:hover {
+  color: $clr-two;
+}
+.bg-color-two .btn:hover {
+  color: $clr-two;
+}
+.bg-color-three .btn:hover {
+  color: $clr-three;
+}
+.bg-color-four .btn:hover {
+  color: $clr-four;
+}
+.bg-color-five .btn:hover {
+  color: $clr-five;
+}

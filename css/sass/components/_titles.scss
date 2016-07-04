@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Components -> Titles
+
+   Titles.
+   ========================================================================== */
+
+.title {
+  margin: 0;
+  padding: 0;
+}
+
+.title--main__container {
+  background-color: black;
+  color: white;
+  height: 300px;
+  width: 300px;
+  z-index: 2;
+
+  .shifted & {
+    //transform: translate(-50%, -50%); // fix element moving to top of page when <body> is transformed
+    transition: none;
+  }
+}
+.title--main {
+  text-align: center;
+}
+
+.title--choice {
+  width: 80%;
+}
+
+.like-h1,
+.like-h2,
+.like-h3 {
+  font-size: 2em;
+}

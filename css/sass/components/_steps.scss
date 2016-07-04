@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Components -> Steps
+
+   These are the styles for the 'steps' or 'choices' that a user will select in the UI.
+   This will be the main bulk of styles for the app.
+   ========================================================================== */
+
+.step__container {
+  position: relative;
+  height: 100vh;
+}
+
+.step {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+.step__container--left .step--one {
+  background-color: $clr-six;
+}
+.step__container--left .step--two {
+  transform: translateX(-100%);
+  left: 0;
+}
+.step__container--left .step--three {
+  transform: translateX(-200%);
+  left: 0;
+}
+
+.step__container--right .step--one {
+  background-color: darken($clr-body, 10%);
+}
+.step__container--right .step--two {
+  transform: translateX(100%);
+  right: 0;
+}
+.step__container--right .step--three {
+  transform: translateX(200%);
+  right: 0;
+}
+
+.step__title {
+  width: 100%;
+  position: relative;
+  text-align: center;
+
+  @include respond-to(tablet) {
+    width: 60%;
+  }
+}
+.step__container--right .step__title {
+  left: 60%;
+}
+.step__container--left .step__title {
+  left: 40%;
+}
+
+.step.visible {
+  z-index: 2;
+}
