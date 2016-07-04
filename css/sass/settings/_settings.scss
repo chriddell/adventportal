@@ -19,3 +19,19 @@ $breakpoints: (
 ) !default;
 
 $gtd: .75s;
+
+@font-face {
+  font-family: 'ApexBook';
+  src: url(../assets/fonts/ApexRounded-Book.eot?#iefix) format('embedded-opentype'), 
+       url(../assets/fonts/ApexRounded-Book.woff) format('woff'), 
+       url(../assets/fonts/ApexRounded-Book.ttf) format('truetype'),
+       url(../assets/fonts/ApexRounded-Book.svg) format('svg');
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url(../assets/fonts/fontawesome-webfont.eot?#iefix) format('embedded-opentype'), 
+       url(../assets/fonts/fontawesome-webfont.woff) format('woff'), 
+       url(../assets/fonts/fontawesome-webfont.ttf) format('truetype'),
+       url(../assets/fonts/fontawesome-webfont.svg) format('svg');
+}

@@ -19,8 +19,18 @@
   max-width: 350px;
   float: left;
   clear: both;
+  font-size: 18px;
 
   & + & {
     margin-top: 15px;
   }
+
+  > i {
+    margin-right: 10px;
+  }
+}
+
+.choice-item__title {
+  font-size: 2em;
+  margin: 0;
 }

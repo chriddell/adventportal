@@ -27,7 +27,7 @@ $(document).ready(function(){
 
     $('html').css({
 
-      'transform': 'translateX(41.66%)' // Shift <body> right
+      'transform': 'translateX(45.76%)' // Shift <body> right
 
     });
 
@@ -40,7 +40,7 @@ $(document).ready(function(){
 
     $('html').css({
 
-      'transform': 'translateX(-41.66%)' // Shift <body> left
+      'transform': 'translateX(-45.76%)' // Shift <body> left
 
     });
 
@@ -72,7 +72,7 @@ $(document).ready(function(){
 
       $('html').css({
 
-        'transform': 'translateX(83.33%)'
+        'transform': 'translateX(91.52%)'
 
       });
 
@@ -80,7 +80,7 @@ $(document).ready(function(){
 
       $('html').css({
 
-        'transform': 'translateX(-83.33%)'
+        'transform': 'translateX(-91.52%)'
 
       });
 

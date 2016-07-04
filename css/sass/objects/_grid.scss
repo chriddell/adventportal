@@ -26,7 +26,7 @@ $susy: (
     }
   }
 
-  @include respond-to(tablet-portrait) {
+  @include respond-to(tablet) {
     .col-tab-#{$i} {
       @include span($i);
     }
