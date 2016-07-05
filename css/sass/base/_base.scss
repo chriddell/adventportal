@@ -9,12 +9,18 @@
   transition: transform $gtd ease;
 }
 
-body {
+body,
+html {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+#main {
   height: 100%;
   width: 100%;
   color: $clr-text;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
 
   @include mainFontStack();
 }

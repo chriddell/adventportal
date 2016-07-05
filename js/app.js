@@ -49,9 +49,9 @@ function matchQuestionAnswer(e) {
        */
       $(startTrackOne).click(function(){
 
-        $('html').css({
+        $('#main').css({
 
-          'transform': 'translateX(71%)' // Shift <html> right
+          'transform': 'translateX(71%)' // Shift <#main> right
 
         }).addClass(shiftedLeftClass + ' ' + shiftedClass);
 
@@ -62,9 +62,9 @@ function matchQuestionAnswer(e) {
        */
       $(startTrackTwo).click(function(){
 
-        $('html').css({
+        $('#main').css({
 
-          'transform': 'translateX(-71%)' // Shift <html> left
+          'transform': 'translateX(-71%)' // Shift <#main> left
 
         }).addClass(shiftedRightClass + ' ' + shiftedClass);
 
@@ -75,7 +75,7 @@ function matchQuestionAnswer(e) {
        */
       $(resetTransforms).click(function(){
 
-        $('html').css({
+        $('#main').css({
 
           'transform': 'translateX(0)'
 
@@ -94,7 +94,7 @@ function matchQuestionAnswer(e) {
         // Check which 'side' question is on, so we know which way to translate
         if ( $(this).data('question').indexOf('a') > -1 ) { 
 
-          $('html').css({
+          $('#main').css({
 
             'transform': 'translateX(116.5%)'
 
@@ -102,7 +102,7 @@ function matchQuestionAnswer(e) {
 
         } else {
 
-          $('html').css({
+          $('#main').css({
 
             'transform': 'translateX(-116.5%)'
 
@@ -121,12 +121,17 @@ function matchQuestionAnswer(e) {
 
     $(document).ready(function(){
 
+      // Disable scrolling
+      $(window).scroll(function(e){
+        e.preventDefault();
+      })
+
       /**
        * Start track one.
        */
       $(startTrackOne).click(function(){
 
-        $('html').css({
+        $('#main').css({
 
           'transform': 'translateY(100%)' // Shift <body> down
 
@@ -139,7 +144,7 @@ function matchQuestionAnswer(e) {
        */
       $(startTrackTwo).click(function(){
 
-        $('html').css({
+        $('#main').css({
 
           'transform': 'translateY(-100%)' // Shift <body> up
 
@@ -152,7 +157,7 @@ function matchQuestionAnswer(e) {
        */
       $(resetTransforms).click(function(){
 
-        $('html').css({
+        $('#main').css({
 
           'transform': 'translateY(0)'
 
@@ -171,7 +176,7 @@ function matchQuestionAnswer(e) {
         // Check which 'side' question is on, so we know which way to translate
         if ( $(this).data('question').indexOf('a') > -1 ) { 
 
-          $('html').css({
+          $('#main').css({
 
             'transform': 'translateY(200%)'
 
@@ -179,7 +184,7 @@ function matchQuestionAnswer(e) {
 
         } else {
 
-          $('html').css({
+          $('#main').css({
 
             'transform': 'translateY(-200%)'
 
@@ -197,7 +202,7 @@ function matchQuestionAnswer(e) {
    * On window resize, if it breaks through our breakpoint, reset the app
    */
   $(window).resize(function(){
-    $('html').css({
+    $('#main').css({
       'transform': 'translate(0, 0)'
     }).removeClass(shiftedLeftClass + ' ' + shiftedRightClass + ' ' + shiftedClass);
   })

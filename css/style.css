@@ -409,12 +409,17 @@ textarea {
        -o-transition: -o-transform 0.9s ease;
           transition: transform 0.9s ease; }
 
-body {
+body,
+html {
+  overflow: hidden;
+  height: 100%;
+  width: 100%; }
+
+#main {
   height: 100%;
   width: 100%;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
   font-family: ApexBook, Futura, Roboto, Verdana, Helvetica, Arial, sans-serif;
   font-size: 16px; }
 
@@ -2942,7 +2947,8 @@ h3 {
       width: 100%;
       float: left;
       margin-left: 0;
-      margin-right: 0; } }
+      margin-right: 0;
+      text-align: center; } }
 
 @media (max-width: 901px) {
   .step--one {
