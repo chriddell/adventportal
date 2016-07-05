@@ -15,7 +15,7 @@
   height: 300px;
   width: 300px;
   z-index: 4;
-  transition: all $gtd ease;
+  transition: all $gtd / 1.25 ease;
 
   .shifted & {
     //transform: translate(-50%, -50%); // fix element moving to top of page when <body> is transformed

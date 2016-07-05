@@ -404,10 +404,10 @@ textarea {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-transition: -webkit-transform 0.75s ease;
-     -moz-transition: -moz-transform 0.75s ease;
-       -o-transition: -o-transform 0.75s ease;
-          transition: transform 0.75s ease; }
+  -webkit-transition: -webkit-transform 0.9s ease;
+     -moz-transition: -moz-transform 0.9s ease;
+       -o-transition: -o-transform 0.9s ease;
+          transition: transform 0.9s ease; }
 
 body {
   height: 100%;
@@ -2849,10 +2849,10 @@ h3 {
   height: 300px;
   width: 300px;
   z-index: 4;
-  -webkit-transition: all 0.75s ease;
-     -moz-transition: all 0.75s ease;
-       -o-transition: all 0.75s ease;
-          transition: all 0.75s ease; }
+  -webkit-transition: all 0.72s ease;
+     -moz-transition: all 0.72s ease;
+       -o-transition: all 0.72s ease;
+          transition: all 0.72s ease; }
   .shifted .title--main__container {
     -webkit-transition: none;
        -moz-transition: none;
@@ -3048,10 +3048,10 @@ h3 {
   width: 100%;
   position: relative;
   text-align: center;
-  -webkit-transition: all 0.75s ease;
-     -moz-transition: all 0.75s ease;
-       -o-transition: all 0.75s ease;
-          transition: all 0.75s ease; }
+  -webkit-transition: all 0.9s ease;
+     -moz-transition: all 0.9s ease;
+       -o-transition: all 0.9s ease;
+          transition: all 0.9s ease; }
   @media (max-width: 1025px) {
     .step__title {
       width: 60%; } }
@@ -3139,10 +3139,10 @@ h3 {
      -moz-border-radius: 5px;
           border-radius: 5px;
   cursor: pointer;
-  -webkit-transition: background-color 0.25s ease, color 0.25s ease;
-     -moz-transition: background-color 0.25s ease, color 0.25s ease;
-       -o-transition: background-color 0.25s ease, color 0.25s ease;
-          transition: background-color 0.25s ease, color 0.25s ease; }
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+     -moz-transition: background-color 0.3s ease, color 0.3s ease;
+       -o-transition: background-color 0.3s ease, color 0.3s ease;
+          transition: background-color 0.3s ease, color 0.3s ease; }
 
 .btn:hover {
   background-color: white; }
