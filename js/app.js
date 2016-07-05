@@ -1,5 +1,18 @@
 'use strict';
 
+var pxToSwitchAppAt = 900; // pixels to change app to vertical
+var shiftedClass = 'shift';
+var shiftedLeftClass = 'shift-left';
+var shiftedRightClass = 'shift-right';
+
+/**
+ * Calculate browser width
+ *
+ */
+function browserWidth() {
+  return $(window).width();
+}
+
 /**
  * Match elements based on data-question and data-answer attributes, 
  * Add/remove class depending on if there's a match or not
@@ -14,78 +27,179 @@ function matchQuestionAnswer(e) {
 
 }
 
-$(document).ready(function(){
+/**
+ * Anonymous function fired on load to get browser width
+ * Then offers up relevant functions based on width
+ */
+(function () {
 
   var startTrackOne    = '#track-one-start'; // assign trigger to var
   var startTrackTwo    = '#track-two-start'; // assign trigger to var
   var resetTransforms  = '#reset'; // assign reset trigger
 
   /**
-   * Start track one.
+   * Desktop
    */
-  $(startTrackOne).click(function(){
+  if ( browserWidth() > pxToSwitchAppAt ) {
 
-    $('html').css({
+    $(document).ready(function(){
 
-      'transform': 'translateX(45.76%)' // Shift <body> right
+      /**
+       * Start track one.
+       */
+      $(startTrackOne).click(function(){
 
-    });
+        $('html').css({
 
-  });
+          'transform': 'translateX(71%)' // Shift <html> right
 
-  /**
-   * Start track two
-   */
-  $(startTrackTwo).click(function(){
-
-    $('html').css({
-
-      'transform': 'translateX(-45.76%)' // Shift <body> left
-
-    });
-
-  });
-
-  /**
-   * Reset to middle
-   */
-  $(resetTransforms).click(function(){
-
-    $('html').css({
-
-      'transform': 'translateX(0)'
-
-    });
-
-  });
-
-  /**
-   * Show answer
-   */
-  $('.step__menu__item').click(function(){
-
-    // Match two elements based 
-    matchQuestionAnswer(this);
-
-    // Check which 'side' question is on, so we know which way to translate
-    if ( $(this).data('question').indexOf('a') > -1 ) { 
-
-      $('html').css({
-
-        'transform': 'translateX(91.52%)'
+        }).addClass(shiftedLeftClass + ' ' + shiftedClass);
 
       });
 
-    } else {
+      /**
+       * Start track two
+       */
+      $(startTrackTwo).click(function(){
 
-      $('html').css({
+        $('html').css({
 
-        'transform': 'translateX(-91.52%)'
+          'transform': 'translateX(-71%)' // Shift <html> left
+
+        }).addClass(shiftedRightClass + ' ' + shiftedClass);
 
       });
 
-    }
+      /**
+       * Reset to middle
+       */
+      $(resetTransforms).click(function(){
 
-  });
+        $('html').css({
 
-});
+          'transform': 'translateX(0)'
+
+        }).removeClass(shiftedLeftClass + ' ' + shiftedRightClass + ' ' + shiftedClass);
+
+      });
+
+      /**
+       * Show answer
+       */
+      $('.step__menu__item').click(function(){
+
+        // Match two elements based 
+        matchQuestionAnswer(this);
+
+        // Check which 'side' question is on, so we know which way to translate
+        if ( $(this).data('question').indexOf('a') > -1 ) { 
+
+          $('html').css({
+
+            'transform': 'translateX(116.5%)'
+
+          });
+
+        } else {
+
+          $('html').css({
+
+            'transform': 'translateX(-116.5%)'
+
+          });
+
+        }
+
+      });
+
+    });
+  
+  /**
+   * Tablet(ish) / Mobile
+   */
+  } else {
+
+    $(document).ready(function(){
+
+      /**
+       * Start track one.
+       */
+      $(startTrackOne).click(function(){
+
+        $('html').css({
+
+          'transform': 'translateY(100%)' // Shift <body> down
+
+        });
+
+      });
+
+      /**
+       * Start track two
+       */
+      $(startTrackTwo).click(function(){
+
+        $('html').css({
+
+          'transform': 'translateY(-100%)' // Shift <body> up
+
+        });
+
+      });
+
+      /**
+       * Reset to middle
+       */
+      $(resetTransforms).click(function(){
+
+        $('html').css({
+
+          'transform': 'translateY(0)'
+
+        });
+
+      });
+
+      /**
+       * Show answer
+       */
+      $('.step__menu__item').click(function(){
+
+        // Match two elements based 
+        matchQuestionAnswer(this);
+
+        // Check which 'side' question is on, so we know which way to translate
+        if ( $(this).data('question').indexOf('a') > -1 ) { 
+
+          $('html').css({
+
+            'transform': 'translateY(200%)'
+
+          });
+
+        } else {
+
+          $('html').css({
+
+            'transform': 'translateY(-200%)'
+
+          });
+
+        }
+
+      });
+
+    });
+
+  }
+
+  /**
+   * On window resize, if it breaks through our breakpoint, reset the app
+   */
+  $(window).resize(function(){
+    $('html').css({
+      'transform': 'translate(0, 0)'
+    }).removeClass(shiftedLeftClass + ' ' + shiftedRightClass + ' ' + shiftedClass);
+  })
+
+})()

@@ -14,7 +14,8 @@
   color: white;
   height: 300px;
   width: 300px;
-  z-index: 2;
+  z-index: 4;
+  transition: all $gtd ease;
 
   .shifted & {
     //transform: translate(-50%, -50%); // fix element moving to top of page when <body> is transformed
@@ -32,6 +33,6 @@
 .like-h1,
 .like-h2,
 .like-h3 {
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: bold;
 }

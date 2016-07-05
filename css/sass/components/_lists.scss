@@ -13,6 +13,23 @@
 .step__menu__item {
   height: 33.33vh;
   position: relative;
+
+  // add a pseudo element to account for the curved border (basically adds background color extension)
+  // color is defined in trumps/_helpers.scss
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 25%;
+    height: 100%;
+  }
+
+  .step__container--left &:before {
+    right: -24%;
+  }
+  .step__container--right &:before {
+    left: -24%;
+  }
 }
 
 /**
@@ -22,8 +39,16 @@
 .step__menu__item:nth-last-child(-n+1):first-child, 
 .step__menu__item:nth-last-child(-n+1):first-child ~ .step__menu__item {
   height: 100vh;
+
+  @include respond-to(vertical) {
+    height: 33vh;
+  }
 }
 .step__menu__item:nth-last-child(-n+2):first-child, 
 .step__menu__item:nth-last-child(-n+2):first-child ~ .step__menu__item {
   height: 50vh;
+
+  @include respond-to(vertical) {
+    height: 50vh;
+  }
 }

@@ -14,8 +14,9 @@ $clr-five:  #ffd18b;
 $clr-six:   #7cc576;
 
 $breakpoints: (
-  'mobile': ( max-width:  767px ),
-  'tablet': ( max-width:  1025px )
+  'mobile':   ( max-width: 767px ),
+  'tablet':   ( max-width: 1025px ),
+  'vertical': ( max-width: 901px )
 ) !default;
 
 $gtd: .75s;

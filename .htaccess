@@ -316,6 +316,9 @@ AddDefaultCharset utf-8
 #
 # (6) Set %{ENV:PROTO} variable, to allow rewrites to redirect with the
 #     appropriate schema automatically (http or https).
+#
+# (7) Rewrite .html extensions to blank.
+#     e.g. User can access /form.html at /form
 
 <IfModule mod_rewrite.c>
 
@@ -339,6 +342,10 @@ AddDefaultCharset utf-8
     RewriteRule ^ - [env=proto:https]
     RewriteCond %{HTTPS} !=on
     RewriteRule ^ - [env=proto:http]
+
+    # (7)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
 </IfModule>
 

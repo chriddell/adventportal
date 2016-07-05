@@ -9,8 +9,14 @@
   height: 100%;
   padding: 80px 120px;
 
-  @media only screen and (max-height: 580px) {
+  @media only screen and (max-height: 900px) and (min-width: 900px) {
     overflow-y: scroll; // fix copy not fitting on small screen-sizes
+  }
+
+  @include respond-to(vertical) {
+    height: 100vh;
+    padding: 20px;
+    overflow-y: scroll;
   }
 }
 
@@ -31,6 +37,13 @@
 }
 
 .choice-item__title {
-  font-size: 2em;
+  @extend .like-h3;
   margin: 0;
+}
+
+/**
+ * Helpers
+ */
+.choice-item.visible { // Make this panel visible
+  z-index: 2;
 }

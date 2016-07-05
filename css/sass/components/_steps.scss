@@ -8,42 +8,110 @@
 .step__container {
   position: relative;
   height: 100vh;
+
+  @include respond-to(vertical) {
+    height: 50vh;
+    @include span(12);
+  }
 }
 
 .step {
   height: 100vh;
   position: absolute;
   top: 0;
+
+  @include respond-to(vertical) {
+    @include span(12);
+  }
 }
 
+.step--one {
+  @include respond-to(vertical) {
+    height: 50vh;
+  }
+
+  // Curved border
+  &:after {
+    content: '';
+    height: 150%;
+    width: 55%;
+    position: absolute;
+    top: -25%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    @include respond-to(vertical) {
+      display: none;
+    }
+  }
+}
 .step__container--left .step--one {
   background-color: $clr-six;
+
+  &:after {
+    left: -54%;
+    background-image: url(../assets/img/border-left.png);
+  }
 }
-.step__container--left .step--two {
-  transform: translateX(-100%);
-  left: 0;
-}
-.step__container--left .step--three {
-  transform: translateX(-200%);
-  left: 0;
+.step__container--right .step--one {
+  background-color: #5f6b78;
+
+  &:after {
+    right: -54%;
+    background-image: url(../assets/img/border-right.png);
+  }
 }
 
-.step__container--right .step--one {
-  background-color: darken($clr-body, 10%);
+.step--two {
+  @include respond-to(vertical) {
+    height: 100vh;
+  }
+}
+.step__container--left .step--two {
+  transform: translateX(-155%);
+  left: 0;
+
+  @include respond-to(vertical) {
+    transform: translate(0, -100vh);
+  }
 }
 .step__container--right .step--two {
-  transform: translateX(100%);
+  transform: translateX(155%);
   right: 0;
+
+  @include respond-to(vertical) {
+    transform: translate(0, 50vh);
+  }
+}
+
+.step--three {
+  @include respond-to(vertical) {
+    height: 100vh;
+  }
+}
+.step__container--left .step--three {
+  transform: translateX(-255%);
+  left: 0;
+
+  @include respond-to(vertical) {
+    transform: translate(0, -200vh);
+  }
 }
 .step__container--right .step--three {
-  transform: translateX(200%);
+  transform: translateX(255%);
   right: 0;
+
+  @include respond-to(vertical) {
+    transform: translate(0, 150vh);
+  }
 }
 
 .step__title {
   width: 100%;
   position: relative;
   text-align: center;
+  transition: all $gtd ease;
 
   @include respond-to(tablet) {
     width: 60%;
@@ -51,11 +119,36 @@
 }
 .step__container--right .step__title {
   left: 60%;
+
+  @include respond-to(vertical) {
+    left: 50%;
+    top: 66%;
+  }
 }
 .step__container--left .step__title {
   left: 40%;
+
+  @include respond-to(vertical) {
+    left: 50%;
+    top: 33%;
+  }
 }
 
-.step.visible {
-  z-index: 2;
+/**
+ * Helpers
+ */
+.shift .step__title {
+  z-index: 3;
+}
+.shift-left .title--main__container {
+  left: 30%;
+}
+.shift-right .title--main__container {
+  left: 70%;
+}
+.shift-right .step__container--right .step__title {
+  left: 100%;
+}
+.shift-left .step__container--left .step__title {
+  left: 0;
 }
