@@ -4,3 +4,56 @@
    Sprite styling. (Icons)
    Not sure what sprites are? See here: https://css-tricks.com/css-sprites/
    ========================================================================== */
+
+.sprite {
+  background-image: url(../assets/img/sprite.png);
+  background-size: 640px 156px;
+  @include image-2x('../assets/img/sprite@2x.png', 640px, 156px);
+}
+
+/**
+ * Generate sprites from name and positions in a map
+ */
+$spriteList: (
+  'apple'           : -16px -20px,
+  'devices'         : -78px -20px,
+  'diamond'         : -140px -20px,
+  'timer'           : -221px -20px,
+  'plus-in-circle'  : -288px -20px,
+  'star'            : -355px -20px,
+  'arrows-to-dot'   : -422px -20px,
+  'cogs'            : -487px -20px,
+  'paper-plane'     : -553px -20px,
+  'speech-bubbles'  : -20px -86px,
+  'lightbulb'       : -93px -86px,
+  'checklist'       : -146px -84px
+);
+
+@each $name, $value in $spriteList {
+  .sprite--#{$name} {
+    background-position: $value;
+  }
+
+  @if ($name == 'diamond' or $name == 'speech-bubbles') { // Make sprite wider to fit these fat icons in
+    .sprite--#{$name} {
+      width: 64px !important;
+    }
+  }
+}
+
+/**
+ * Tweaks
+ */
+.choice-item__title .sprite {
+  display: block;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  left: -64px;
+  top: -6px;
+}
+
+.choice-item__title .sprite--diamond,
+.choice-item__title .sprite--speech-bubbles {
+  left: -76px;
+}

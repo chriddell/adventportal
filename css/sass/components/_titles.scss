@@ -21,6 +21,11 @@
     //transform: translate(-50%, -50%); // fix element moving to top of page when <body> is transformed
     transition: none;
   }
+
+  @include respond-to(mobile-small) {
+    height: 150px;
+    width: 150px;
+  }
 }
 .title--main {
   text-align: center;
@@ -35,4 +40,8 @@
 .like-h3 {
   font-size: 1.8em;
   font-weight: bold;
+
+  @include respond-to(mobile-small) {
+    font-size: 1.25em;
+  }
 }

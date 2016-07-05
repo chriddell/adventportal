@@ -19,16 +19,4 @@ $susy: (
   .col-#{$i} {
     @include span($i);
   }
-
-  @include respond-to(mobile) {
-    .col-mob-#{$i} {
-      @include span($i);
-    }
-  }
-
-  @include respond-to(tablet) {
-    .col-tab-#{$i} {
-      @include span($i);
-    }
-  }
 }

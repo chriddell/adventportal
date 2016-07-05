@@ -9,7 +9,7 @@
   height: 100%;
   padding: 80px 120px;
 
-  @media only screen and (max-height: 900px) and (min-width: 900px) {
+  @media only screen and (max-height: 700px) and (min-width: 900px) {
     overflow-y: scroll; // fix copy not fitting on small screen-sizes
   }
 
@@ -27,6 +27,13 @@
   clear: both;
   font-size: 18px;
 
+  @include respond-to(vertical) {
+    float: none;
+    width: 350px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
   & + & {
     margin-top: 15px;
   }
@@ -39,6 +46,11 @@
 .choice-item__title {
   @extend .like-h3;
   margin: 0;
+  position: relative; // allow sprites
+
+  @include respond-to(vertical) {
+    display: inline-block; // auto-width
+  }
 }
 
 /**
