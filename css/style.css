@@ -2833,14 +2833,14 @@ h3 {
     background-color: #88cdd3; }
 
 .bg-color-four {
-  background-color: #ffe200; }
+  background-color: #599490; }
   .bg-color-four:before {
-    background-color: #ffe200; }
+    background-color: #599490; }
 
 .bg-color-five {
-  background-color: #ffd18b; }
+  background-color: #bd71a0; }
   .bg-color-five:before {
-    background-color: #ffd18b; }
+    background-color: #bd71a0; }
 
 .bg-color-six {
   background-color: #7cc576; }
@@ -2868,10 +2868,10 @@ h3 {
   color: #88cdd3; }
 
 .bg-color-four .btn:hover {
-  color: #ffe200; }
+  color: #599490; }
 
 .bg-color-five .btn:hover {
-  color: #ffd18b; }
+  color: #bd71a0; }
 
 .touch .btn:hover {
   color: white !important; }
@@ -2894,13 +2894,13 @@ h3 {
     .bg-color-three .btn:hover {
       background-color: #88cdd3; }
   .bg-color-four .btn {
-    background-color: #ffe200; }
+    background-color: #599490; }
     .bg-color-four .btn:hover {
-      background-color: #ffe200; }
+      background-color: #599490; }
   .bg-color-five .btn {
-    background-color: #ffd18b; }
+    background-color: #bd71a0; }
     .bg-color-five .btn:hover {
-      background-color: #ffd18b; } }
+      background-color: #bd71a0; } }
 
 .touch .bg-color-one .btn {
   background-color: #ea4e5d; }
@@ -2923,14 +2923,14 @@ h3 {
     background-color: #88cdd3; }
 
 .touch .bg-color-four .btn {
-  background-color: #ffe200; }
+  background-color: #599490; }
   .touch .bg-color-four .btn:hover {
-    background-color: #ffe200; }
+    background-color: #599490; }
 
 .touch .bg-color-five .btn {
-  background-color: #ffd18b; }
+  background-color: #bd71a0; }
   .touch .bg-color-five .btn:hover {
-    background-color: #ffd18b; }
+    background-color: #bd71a0; }
 
 /**
  * Step Menu Items
