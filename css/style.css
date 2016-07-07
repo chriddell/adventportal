@@ -2873,34 +2873,19 @@ h3 {
 .bg-color-five .btn:hover {
   color: #bd71a0; }
 
-.touch .btn:hover {
-  color: white !important; }
-
 @media (max-width: 901px) {
   .bg-color-one .btn {
     background-color: #ea4e5d; }
-    .bg-color-one .btn:hover {
-      background-color: #ea4e5d; }
   .bg-color-two .btn {
     background-color: #ad9fcd; }
-    .bg-color-two .btn:hover {
-      background-color: #ad9fcd; }
   .bg-color-two .btn {
     background-color: #ad9fcd; }
-    .bg-color-two .btn:hover {
-      background-color: #ad9fcd; }
   .bg-color-three .btn {
     background-color: #88cdd3; }
-    .bg-color-three .btn:hover {
-      background-color: #88cdd3; }
   .bg-color-four .btn {
     background-color: #599490; }
-    .bg-color-four .btn:hover {
-      background-color: #599490; }
   .bg-color-five .btn {
-    background-color: #bd71a0; }
-    .bg-color-five .btn:hover {
-      background-color: #bd71a0; } }
+    background-color: #bd71a0; } }
 
 .touch .bg-color-one .btn {
   background-color: #ea4e5d; }
@@ -2931,6 +2916,13 @@ h3 {
   background-color: #bd71a0; }
   .touch .bg-color-five .btn:hover {
     background-color: #bd71a0; }
+
+.touch .btn:hover {
+  color: white !important; }
+
+@media (max-width: 901px) {
+  .btn:hover {
+    color: white; } }
 
 /**
  * Step Menu Items

@@ -73,47 +73,25 @@
   color: $clr-five;
 }
 
-.touch .btn:hover {
-  color: white !important;
-}
-
 // Need to set a bg color on vertical appearance to prevent see-through btns
 @include respond-to(vertical) {
   .bg-color-one .btn {
     background-color: $clr-one;
-    &:hover {
-      background-color: $clr-one;
-    }
   }
   .bg-color-two .btn {
     background-color: $clr-two;
-    &:hover {
-      background-color: $clr-two;
-    }
   }
   .bg-color-two .btn {
     background-color: $clr-two;
-    &:hover {
-      background-color: $clr-two;
-    }
   }
   .bg-color-three .btn {
     background-color: $clr-three;
-    &:hover {
-      background-color: $clr-three;
-    }
   }
   .bg-color-four .btn {
     background-color: $clr-four;
-    &:hover {
-      background-color: $clr-four;
-    }
   }
   .bg-color-five .btn {
     background-color: $clr-five;
-    &:hover {
-      background-color: $clr-five;
-    }
   }
 }
 
@@ -154,6 +132,17 @@
     &:hover {
       background-color: $clr-five;
     }
+  }
+}
+
+// Keep text white on touch devices and slim screens
+.touch .btn:hover {
+  color: white !important;
+}
+
+@include respond-to(vertical) {
+  .btn:hover {
+    color: white;
   }
 }
 
