@@ -27,6 +27,20 @@ function matchQuestionAnswer(e) {
 
 }
 
+function showOverlay(clicked) {
+
+  var whichOverlay = $(clicked).data('overlay'); // find out which overlay to show based on data-attr
+  var target = $('body').find('.overlay[data-overlay="' + whichOverlay + '"]'); // find the relevant overlay
+  target.removeClass('overlay--hidden'); // remove the hidden class
+
+}
+
+function closeOverlay(clicked) {
+
+  $(clicked).parent('.overlay').addClass('overlay--hidden'); // find the parent, add a hidden class
+
+}
+
 /**
  * Anonymous function fired on load to get browser width
  * Then offers up relevant functions based on width
@@ -36,6 +50,8 @@ function matchQuestionAnswer(e) {
   var startTrackOne    = '#track-one-start'; // assign trigger to var
   var startTrackTwo    = '#track-two-start'; // assign trigger to var
   var resetTransforms  = '#reset'; // assign reset trigger
+  var flipToRightTrigger = '.choice-item__cta--flip-sides--to-right';
+  var flipToLeftTrigger = '.choice-item__cta--flip-sides--to-left';
 
   /**
    * Desktop
@@ -51,7 +67,7 @@ function matchQuestionAnswer(e) {
 
         $('#main').css({
 
-          'transform': 'translateX(71%)' // Shift <#main> right
+          'transform': 'translateX(71%)' // Go to left side
 
         }).addClass(shiftedLeftClass + ' ' + shiftedClass);
 
@@ -64,7 +80,7 @@ function matchQuestionAnswer(e) {
 
         $('#main').css({
 
-          'transform': 'translateX(-71%)' // Shift <#main> left
+          'transform': 'translateX(-71%)' //  Go to right side
 
         }).addClass(shiftedRightClass + ' ' + shiftedClass);
 
@@ -96,7 +112,7 @@ function matchQuestionAnswer(e) {
 
           $('#main').css({
 
-            'transform': 'translateX(116.5%)'
+            'transform': 'translateX(116.5%)' // Go to left side
 
           });
 
@@ -104,13 +120,36 @@ function matchQuestionAnswer(e) {
 
           $('#main').css({
 
-            'transform': 'translateX(-116.5%)'
+            'transform': 'translateX(-116.5%)' // Go to right side
 
           });
 
         }
 
       });
+
+      /**
+       * Change sides from 'actions' button
+       */
+      $(flipToRightTrigger).click(function(){
+
+        $('#main').css({
+
+          'transform': 'translateX(-71%)' // Go to right side
+
+        }).removeClass(shiftedLeftClass).addClass(shiftedRightClass + ' ' + shiftedClass);
+
+      })
+
+      $(flipToLeftTrigger).click(function(){
+
+        $('#main').css({
+
+          'transform': 'translateX(71%)' // Go to left side
+
+        }).removeClass(shiftedRightClass).addClass(shiftedLeftClass + ' ' + shiftedClass);
+
+      })
 
     });
   
@@ -121,10 +160,9 @@ function matchQuestionAnswer(e) {
 
     $(document).ready(function(){
 
-      // Disable scrolling
-      $(window).scroll(function(e){
-        e.preventDefault();
-      })
+      var animateInClass = 'ani--float-in-down';
+      var showActionsTrigger = '#show-ctas';
+      var closeActionsTrigger = '#close-ctas';
 
       /**
        * Start track one.
@@ -136,6 +174,10 @@ function matchQuestionAnswer(e) {
           'transform': 'translateY(100%)' // Shift <body> down
 
         });
+
+        $('.title__helper')
+          .removeClass('hidden')
+          .addClass(animateInClass);
 
       });
 
@@ -150,6 +192,10 @@ function matchQuestionAnswer(e) {
 
         });
 
+        $('.title__helper')
+          .removeClass('hidden')
+          .addClass(animateInClass); // SHow title
+
       });
 
       /**
@@ -162,6 +208,23 @@ function matchQuestionAnswer(e) {
           'transform': 'translateY(0)'
 
         });
+
+      });
+
+      /**
+       * Reset to middle
+       */
+      $('.title__helper').click(function(){
+
+        $('#main').css({
+
+          'transform': 'translateY(0)'
+
+        });
+
+        $(this)
+          .removeClass(animateInClass)
+          .addClass('hidden');
 
       });
 
@@ -194,9 +257,104 @@ function matchQuestionAnswer(e) {
 
       });
 
+      /**
+       * Show buttons
+       */
+      $(document).on('click', showActionsTrigger, function(){
+
+        var otherButtonsArray = $(this).siblings('.choice-item__cta');
+        var heightOfButton = 63.5; // height of button plus allow for margin
+        var currentBottomPos = 30; // starting position of trigger
+
+        // Loop through sibling elements and move them up (manipulate CSS 'bottom' val)
+        for (var i = 0; i <= otherButtonsArray.length; i++) {
+
+          var newBottomPos = currentBottomPos + (heightOfButton * (i + 1));
+
+          $(otherButtonsArray[i]).css({
+            'bottom': newBottomPos + 'px'
+          });
+
+        }
+
+        // Now modify the trigger elem
+        $(this)
+          /*
+           * Modify ID attr
+           */
+          .attr('id', closeActionsTrigger.replace('#', ''))
+          .text('Close actions'); // Modify text
+      });
+
+      /**
+       * Close buttons
+       */
+      $(document).on('click', closeActionsTrigger, function(){
+
+        var otherButtonsArray = $(this).siblings('.choice-item__cta');
+
+        // Loop through sibling elements and move them back to orig pos.
+        for (var i = 0; i <= otherButtonsArray.length; i++) {
+
+          $(otherButtonsArray[i]).css({
+            'bottom': '20px'
+          });
+
+        }
+
+        // Now modify the trigger elem
+        $(this)
+          /*
+           * Modify ID attr
+           */
+          .attr('id', showActionsTrigger.replace('#', ''))
+          .text('Show actions'); // Modify text
+
+      });
+
+      /**
+       * Change sides from 'actions' buttons
+       */
+      $(flipToRightTrigger).click(function(){
+
+        $('#main').css({
+
+          'transform': 'translateY(-100%)' // Go up
+
+        });
+
+      });
+
+      $(flipToLeftTrigger).click(function(){
+
+        $('#main').css({
+
+          'transform': 'translateY(100%)' // Go down
+
+        });
+
+      });
+
     });
 
   }
+
+  /**
+   * Overlays
+   */
+  $(document).on('click', '.overlay__open', function(){
+    showOverlay(this);
+  });
+
+  $(document).on('click', '.overlay__close', function(){
+    closeOverlay(this);
+  })
+
+  $(document).keyup(function(e) {
+     if (e.keyCode == 27) { // escape key maps to keycode `27`
+      closeOverlay('.overlay .overlay__close');
+    }
+  });
 
   /**
    * On window resize, if it breaks through our breakpoint, reset the app

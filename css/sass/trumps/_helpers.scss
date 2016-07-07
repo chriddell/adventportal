@@ -15,47 +15,6 @@
   border-radius: 100%;
 }
 
-/**
- * Create background-color classes.
- * Using the color vars defined in _settings.scss
- */
-.bg-color-one {
-  background-color: $clr-one;
-  &:before {
-    background-color: $clr-one;
-  }
-}
-.bg-color-two {
-  background-color: $clr-two;
-  &:before {
-    background-color: $clr-two;
-  }
-}
-.bg-color-three {
-  background-color: $clr-three;
-  &:before {
-    background-color: $clr-three;
-  }
-}
-.bg-color-four {
-  background-color: $clr-four;
-  &:before {
-    background-color: $clr-four;
-  }
-}
-.bg-color-five {
-  background-color: $clr-five;
-  &:before {
-    background-color: $clr-five;
-  }
-}
-.bg-color-six {
-  background-color: $clr-six;
-  &:before {
-    background-color: $clr-six;
-  }
-}
-
 .like-link:hover {
   cursor: pointer;
 }
@@ -72,4 +31,25 @@
   bottom: 0;
   box-shadow: 0 2px 2px 0 #999999;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .2);
+}
+
+.fixed-pos {
+  position: fixed;
+}
+
+.vert-only {
+  display: none;
+  @include respond-to(vertical) {
+    display: block;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.smaller-text-mob {
+  @include respond-to(mobile-large) {
+    font-size: .9em;
+  }
 }

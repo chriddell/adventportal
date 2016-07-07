@@ -12,6 +12,7 @@ $clr-three: #88cdd3;
 $clr-four:  #ffe200;
 $clr-five:  #ffd18b;
 $clr-six:   #7cc576;
+$clr-seven: #5f6b78;
 
 $breakpoints: (
   'mobile-small': ( max-width: 350px ),
@@ -37,3 +38,5 @@ $gtd: .9s;
        url(../assets/fonts/fontawesome-webfont.ttf) format('truetype'),
        url(../assets/fonts/fontawesome-webfont.svg) format('svg');
 }
+
+$font-smoothing: true;

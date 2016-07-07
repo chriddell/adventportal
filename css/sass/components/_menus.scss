@@ -30,6 +30,10 @@
   .step__container--right &:before {
     left: -24%;
   }
+
+  &:hover .title {
+    text-decoration: underline;
+  }
 }
 
 /**
@@ -50,5 +54,18 @@
 
   @include respond-to(vertical) {
     height: 50vh;
+  }
+}
+
+/**
+ * Tweaks
+ */
+.step__menu__item:first-child .title {
+  @include respond-to(vertical) {
+    top: 66%; // Shift title down when in vertical appearance to allow for top title (How can a portal...)
+  }
+
+  @include respond-to(mobile-small) {
+    top: 55%;
   }
 }

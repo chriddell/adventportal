@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Components -> Vendor
+
+   Overriding vendor/plugin styles.
+   ========================================================================== */
+
+/**
+ * Marketo
+ */ 
+.mktoForm {
+  width: 60% !important;
+  max-width: 800px;
+
+  .overlay--hidden & {
+    display: none;
+  }
+
+  @include respond-to(mobile-large) {
+    width: 100% !important;
+    padding: 0 20px !important;
+  }
+}

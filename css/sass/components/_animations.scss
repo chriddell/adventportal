@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Components -> Animations
+  
+   Animations for usings.
+   ========================================================================== */
+
+@include keyframes(floatDown) {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.ani--float-in-down {
+  @include animation(floatDown $gtd ease forwards);
+}
+
+@include keyframes(formEntrance) {
+  0% {
+    opacity: 0;
+    top: 55%;
+  }
+
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+.ani--form-entrance {
+  @include animation(formEntrance $gtd ease forwards);
+}

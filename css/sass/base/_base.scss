@@ -14,15 +14,20 @@ html {
   overflow: hidden;
   height: 100%;
   width: 100%;
+  color: $clr-text;
+  @include mainFontStack();
+}
+
+body {
+  @if $font-smoothing == true {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 #main {
   height: 100%;
   width: 100%;
-  color: $clr-text;
-  -webkit-font-smoothing: antialiased;
-
-  @include mainFontStack();
 }
 
 h1,

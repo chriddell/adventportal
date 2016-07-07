@@ -34,9 +34,9 @@ $spriteList: (
     background-position: $value;
   }
 
-  @if ($name == 'diamond' or $name == 'speech-bubbles') { // Make sprite wider to fit these fat icons in
+  @if ($name == 'diamond' or $name == 'speech-bubbles') { 
     .sprite--#{$name} {
-      width: 64px !important;
+      width: 64px !important; // Make sprite wider to fit these fat icons in
     }
   }
 }
@@ -51,6 +51,10 @@ $spriteList: (
   width: 48px;
   left: -64px;
   top: -6px;
+
+  @include respond-to(vertical) {
+    top: -10px;
+  } 
 }
 
 .choice-item__title .sprite--diamond,

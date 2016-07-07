@@ -10,28 +10,23 @@
   border: 2px solid white;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color $gtd / 3 ease, color $gtd / 3 ease;
+  transition: background-color $gtd / 3 ease, color $gtd / 3 ease, bottom $gtd / 1.5 ease;
+}
+
+a.btn {
+  text-decoration: none;
+  color: white;
 }
 
 .btn:hover {
   background-color: white;
 }
 
-.bg-color-one .btn:hover {
-  color: $clr-one;
-}
-.bg-color-two .btn:hover {
-  color: $clr-two;
-}
-.bg-color-two .btn:hover {
-  color: $clr-two;
-}
-.bg-color-three .btn:hover {
-  color: $clr-three;
-}
-.bg-color-four .btn:hover {
-  color: $clr-four;
-}
-.bg-color-five .btn:hover {
-  color: $clr-five;
+/**
+ * Helpers & Tweaks
+ */
+
+// Remove style on hover for touch devices
+.touch .btn:hover {
+  color: white !important;
 }

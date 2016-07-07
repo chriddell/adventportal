@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Components -> Backgrounds
+
+   Useful background classes and their uses across different elements on the site
+   ========================================================================== */
+
+/**
+ * Create background-color classes.
+ * Using the color vars defined in _settings.scss
+ */
+.bg-color-one {
+  background-color: $clr-one;
+  &:before {
+    background-color: $clr-one;
+  }
+}
+.bg-color-two {
+  background-color: $clr-two;
+  &:before {
+    background-color: $clr-two;
+  }
+}
+.bg-color-three {
+  background-color: $clr-three;
+  &:before {
+    background-color: $clr-three;
+  }
+}
+.bg-color-four {
+  background-color: $clr-four;
+  &:before {
+    background-color: $clr-four;
+  }
+}
+.bg-color-five {
+  background-color: $clr-five;
+  &:before {
+    background-color: $clr-five;
+  }
+}
+.bg-color-six {
+  background-color: $clr-six;
+  &:before {
+    background-color: $clr-six;
+  }
+}
+.bg-color-seven {
+  background-color: $clr-seven;
+  &:before {
+    background-color: $clr-seven;
+  }
+}
+
+/**
+ * Buttons
+ */
+.bg-color-one .btn:hover {
+  color: $clr-one;
+}
+.bg-color-two .btn:hover {
+  color: $clr-two;
+}
+.bg-color-two .btn:hover {
+  color: $clr-two;
+}
+.bg-color-three .btn:hover {
+  color: $clr-three;
+}
+.bg-color-four .btn:hover {
+  color: $clr-four;
+}
+.bg-color-five .btn:hover {
+  color: $clr-five;
+}
+
+.touch .btn:hover {
+  color: white !important;
+}
+
+// Need to set a bg color on vertical appearance to prevent see-through btns
+@include respond-to(vertical) {
+  .bg-color-one .btn {
+    background-color: $clr-one;
+    &:hover {
+      background-color: $clr-one;
+    }
+  }
+  .bg-color-two .btn {
+    background-color: $clr-two;
+    &:hover {
+      background-color: $clr-two;
+    }
+  }
+  .bg-color-two .btn {
+    background-color: $clr-two;
+    &:hover {
+      background-color: $clr-two;
+    }
+  }
+  .bg-color-three .btn {
+    background-color: $clr-three;
+    &:hover {
+      background-color: $clr-three;
+    }
+  }
+  .bg-color-four .btn {
+    background-color: $clr-four;
+    &:hover {
+      background-color: $clr-four;
+    }
+  }
+  .bg-color-five .btn {
+    background-color: $clr-five;
+    &:hover {
+      background-color: $clr-five;
+    }
+  }
+}
+
+// Set bg color on any touch device
+.touch {
+  .bg-color-one .btn {
+    background-color: $clr-one;
+    &:hover {
+      background-color: $clr-one;
+    }
+  }
+  .bg-color-two .btn {
+    background-color: $clr-two;
+    &:hover {
+      background-color: $clr-two;
+    }
+  }
+  .bg-color-two .btn {
+    background-color: $clr-two;
+    &:hover {
+      background-color: $clr-two;
+    }
+  }
+  .bg-color-three .btn {
+    background-color: $clr-three;
+    &:hover {
+      background-color: $clr-three;
+    }
+  }
+  .bg-color-four .btn {
+    background-color: $clr-four;
+    &:hover {
+      background-color: $clr-four;
+    }
+  }
+  .bg-color-five .btn {
+    background-color: $clr-five;
+    &:hover {
+      background-color: $clr-five;
+    }
+  }
+}
+
+/**
+ * Step Menu Items
+.step__menu__item.bg-color-one:hover {
+  background-color: darken($clr-one, 5%);
+  &:before {
+    background-color: darken($clr-one, 5%);
+  }
+}
+.step__menu__item.bg-color-two:hover {
+  background-color: darken($clr-two, 5%);
+  &:before {
+    background-color: darken($clr-two, 5%);
+  }
+}
+.step__menu__item.bg-color-three:hover {
+  background-color: darken($clr-three, 5%);
+  &:before {
+    background-color: darken($clr-three, 5%);
+  }
+}
+.step__menu__item.bg-color-four:hover {
+  background-color: darken($clr-four, 5%);
+  &:before{
+    background-color: darken($clr-four, 5%);
+  }
+}
+.step__menu__item.bg-color-five:hover {
+  background-color: darken($clr-five, 5%);
+  &:before {
+    background-color: darken($clr-five, 5%);
+  }
+}
+.step__menu__item.bg-color-six:hover {
+  background-color: darken($clr-six, 5%);
+  &:before {
+    background-color: darken($clr-six, 5%);
+  }
+}
+
+/**
+ * First steps (first screen - left and right/top and bottom)
+.step--one.bg-color-six:hover {
+  background-color: darken($clr-six, 5%);
+  &:before {
+    background-color: darken($clr-six, 5%);
+  }
+}
+.step--one.bg-color-seven:hover {
+  background-color: darken($clr-seven, 5%);
+  &:before {
+    background-color: darken($clr-seven, 5%);
+  }
+}
+*/
