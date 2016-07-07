@@ -1,9 +1,13 @@
 'use strict';
 
-var pxToSwitchAppAt = 900; // pixels to change app to vertical
+var appBreakpoint = 900; // pixels to change app to vertical
+
 var shiftedClass = 'shift';
 var shiftedLeftClass = 'shift-left';
 var shiftedRightClass = 'shift-right';
+
+var currentBrowserWidth; // set up global var to use in our resizestart and resizeend functions
+var browserWiderThanAppBreakpoint; // same as above
 
 /**
  * Calculate browser width
@@ -42,6 +46,40 @@ function closeOverlay(clicked) {
 }
 
 /**
+ * Debounced Resize() jQuery Plugin
+ * by Paul Irish
+ *
+ * Basically, mods resize event to only fire on resize end
+ */
+(function($,sr){
+
+  // debouncing function from John Hann
+  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+  var debounce = function (func, threshold, execAsap) {
+      var timeout;
+
+      return function debounced () {
+          var obj = this, args = arguments;
+          function delayed () {
+              if (!execAsap)
+                  func.apply(obj, args);
+              timeout = null;
+          };
+
+          if (timeout)
+              clearTimeout(timeout);
+          else if (execAsap)
+              func.apply(obj, args);
+
+          timeout = setTimeout(delayed, threshold || 500);
+      };
+  }
+  // resizeend 
+  jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+})(jQuery,'resizeend');
+
+/**
  * Anonymous function fired on load to get browser width
  * Then offers up relevant functions based on width
  */
@@ -56,7 +94,7 @@ function closeOverlay(clicked) {
   /**
    * Desktop
    */
-  if ( browserWidth() > pxToSwitchAppAt ) {
+  if ( browserWidth() > appBreakpoint ) {
 
     $(document).ready(function(){
 
@@ -356,13 +394,68 @@ function closeOverlay(clicked) {
     }
   });
 
+  $(window).resizestart(function() {
+
+    // Grab width at start of resize
+    currentBrowserWidth = browserWidth();
+
+    // If current width is bigger than app breakpoint
+    if (currentBrowserWidth > appBreakpoint) {
+
+      // Set var true
+      browserWiderThanAppBreakpoint = true;
+
+    } else {
+
+      // Set var false
+      browserWiderThanAppBreakpoint = false;
+
+    }
+  });
+
   /**
-   * On window resize, if it breaks through our breakpoint, reset the app
+   * On window resize (end) reset the app to center
    */
-  $(window).resize(function(){
-    $('#main').css({
-      'transform': 'translate(0, 0)'
-    }).removeClass(shiftedLeftClass + ' ' + shiftedRightClass + ' ' + shiftedClass);
-  })
+  $(window).resizeend(function(){
+
+    // Set new var true/false depending by comparing new browser width with appBreakpoint
+    var browserStillWiderThanAppBreakpoint = browserWidth() > appBreakpoint ? true : false;
+
+    // If the browser was wider than the breakpoint originally
+    if (browserWiderThanAppBreakpoint) {
+
+      // And if the browser is still wider than our breakpoint
+      if (browserStillWiderThanAppBreakpoint) {
+
+        // Do nothing
+        return;
+
+      // Else it's gotten smaller
+      } else {
+
+        // So we do something about it
+        showOverlay('#show-refresh-message');
+
+      }
+
+    // If it wasn't wider than our breakpoint, so basically do reverse of the above
+    } else if (!browserWiderThanAppBreakpoint) {
+
+      // Check whether it is still 'less wide' than our breakpoint
+      if (!browserStillWiderThanAppBreakpoint) {
+
+        // Do nothing
+        return;
+      
+      } else {
+
+        // So we do something about it
+        showOverlay('#show-refresh-message');
+
+      }
+
+    }
+
+  });
 
 })()

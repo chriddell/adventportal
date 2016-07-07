@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title>Advent Online Portal</title>
     <meta name="description" content="A description of the site should go here">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -177,7 +177,7 @@
 
     <!-- Overlays -->
     <!-- Form -->
-    <div class="overlay overlay--hidden" id="overlay" data-overlay="contact-us">
+    <div class="overlay overlay--hidden" data-overlay="contact-us">
       <span class="overlay__close -sr-only">Close</span>
       <h1>Contact us</h1>
       <form id="mktoForm_1209" class="centered ani--form-entrance">
@@ -185,6 +185,14 @@
       </form>
     </div>
     <!-- / Form -->
+
+    <!-- Refresh Message -->
+    <!-- 'Pseudo' element so we can use the below without an actual 'click' and not trash our JS :) -->
+    <span id="show-refresh-message" data-overlay="refresh-your-browser"></span>
+    <div class="overlay overlay--hidden" data-overlay="refresh-your-browser">
+      <h1>Looks like you've changed your screen-size!</h1>
+      <p>Because of this, our app needs to reset so it can function properly. Please refresh the page.</p>
+    </div>
 
     <!-- Vendor JS -->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js" async></script>
@@ -198,6 +206,7 @@
     <script src="js/vendor/vminpoly/parser.js"></script>
     <script src="js/vendor/vminpoly/tokenizer.js"></script>
     <script src="js/vendor/vminpoly/vminpoly.js"></script>
+    <script src="js/vendor/jquery.resizestart.js"></script>
 
     <!-- Marketo form -->
     <script src="//app-ab17.marketo.com/js/forms2/js/forms2.min.js"></script>
