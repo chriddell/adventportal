@@ -26,8 +26,10 @@ body {
 }
 
 #main {
-  height: 100%;
+  height: calc(100% - 85px); // allow for header
   width: 100%;
+  position: relative;
+  top: 85px; // allow for header
 }
 
 h1,
@@ -38,4 +40,9 @@ h3 {
   @include respond-to(mobile-small) {
     font-size: 1.25em;
   }
+}
+
+ol,
+ul {
+  list-style: none;
 }

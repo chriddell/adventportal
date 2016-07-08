@@ -7,16 +7,21 @@
 
 .step__container {
   position: relative;
-  height: 100vh;
+  height: 100%;
 
   @include respond-to(vertical) {
-    height: 50vh;
+    height: 50%;
     @include span(12);
+
+    // iOS vh fix
+    .ios & {
+      height: 50%;
+    }
   }
 }
 
 .step {
-  height: 100vh;
+  height: 100%;
   position: absolute;
   top: 0;
 
@@ -28,7 +33,12 @@
 
 .step--one {
   @include respond-to(vertical) {
-    height: 50vh;
+    height: 100%;
+
+    // iOS vh fix
+    .ios & {
+      height: 100%;
+    }
   }
 
   // Curved border
@@ -62,7 +72,12 @@
 
 .step--two {
   @include respond-to(vertical) {
-    height: 100vh;
+    height: 200%;
+
+    // iOS fix
+    .ios & {
+      height: 200%;
+    }
   }
 }
 .step__container--left .step--two {
@@ -70,7 +85,7 @@
   left: 0;
 
   @include respond-to(vertical) {
-    transform: translate(0, -100vh);
+    transform: translate(0, -100%);
   }
 }
 .step__container--right .step--two {
@@ -78,21 +93,16 @@
   right: 0;
 
   @include respond-to(vertical) {
-    transform: translate(0, 50vh);
+    transform: translate(0, 50%);
   }
 }
 
-.step--three {
-  @include respond-to(vertical) {
-    height: 100vh;
-  }
-}
 .step__container--left .step--three {
   transform: translateX(-255%);
   left: 0;
 
   @include respond-to(vertical) {
-    transform: translate(0, -200vh);
+    transform: translate(0, -200%);
   }
 }
 .step__container--right .step--three {
@@ -100,7 +110,7 @@
   right: 0;
 
   @include respond-to(vertical) {
-    transform: translate(0, 150vh);
+    transform: translate(0, 150%);
   }
 }
 

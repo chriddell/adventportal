@@ -9,26 +9,29 @@
   height: 100%;
   padding: 80px 120px;
 
-  @media only screen and (max-height: 700px) and (min-width: 900px) {
-    overflow-y: scroll; // fix copy not fitting on small screen-sizes
-  }
-
   @include respond-to(vertical) {
-    height: 100vh;
+    height: 200%;
     padding: 20px;
     overflow-y: scroll;
+
+    // iOS fix
+    .ios & {
+      height: 200%;
+    }
+  }
+
+  @media only screen and (max-height: 769px) and (min-width: 1024px) {
+    overflow-y: scroll; // fix copy not fitting on small screen-sizes
   }
 }
 
 .choice-item__wrapper {
   @include respond-to(mobile-large) {
-    max-height: 540px;
-    max-height: 80vh;
-    overflow-y: scroll;
+    max-height: 80%;
+    overflow-y: scroll; // fix copy not fitting on small screens
   }
   @include respond-to(mobile-small) {
-    max-height: 300px;
-    max-height: 75vh;
+    max-height: 75%;
   }
 }
 
@@ -75,7 +78,7 @@
 
 .choice-item .title--choice { // extra title when in vert
   width: 100%;
-  margin: 80px 0 40px;
+  margin: 100px 0 40px;
 }
 
 /**
