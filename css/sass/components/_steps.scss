@@ -63,11 +63,11 @@
 }
 .step__container--left .step--one:after {
   left: -54.9%; // .9 to avoid slight gap
-  background-image: url(../assets/img/border-left.png);
+  background-image: url(../assets/img/border-left2.png);
 }
 .step__container--right .step--one:after {
   right: -54.9%; // .9 to avoid slight gap
-  background-image: url(../assets/img/border-right.png);
+  background-image: url(../assets/img/border-right2.png);
 }
 
 .step--two {
@@ -125,7 +125,7 @@
     width: 60%;
   }
 }
-.step__container--right .step__title {
+.step__container--right .step--one__title {
   left: 60%;
 
   @include respond-to(vertical) {
@@ -133,13 +133,33 @@
     top: 66%;
   }
 }
-.step__container--left .step__title {
+.step__container--left .step--one__title {
   left: 40%;
 
   @include respond-to(vertical) {
     left: 50%;
     top: 33%;
   }
+}
+
+.step__title--border {
+  width: auto;
+  top: 45% !important;
+  transform: translate(-50%, -50%) rotate(-270deg) !important;
+
+  @include respond-to(tablet) {
+    font-size: 1.4em;
+  }
+
+  @include respond-to(vertical) {
+    visibility: hidden;
+  }
+}
+.step__title--border--left {
+  left: -50% !important; // overriding centered class
+}
+.step__title--border--right {
+  left: 150% !important; // overriding centered class
 }
 
 /**
@@ -151,9 +171,9 @@
 .shift-right .title--main__container {
   left: 70%;
 }
-.shift-right .step__container--right .step__title {
+.shift-right .step__container--right .step--one__title {
   left: 100%;
 }
-.shift-left .step__container--left .step__title {
+.shift-left .step__container--left .step--one__title {
   left: 0;
 }
