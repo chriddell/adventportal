@@ -7,11 +7,11 @@
 
 .choice-item {
   height: 100%;
-  padding: 80px 120px;
+  padding: 160px 120px 80px;
 
   @include respond-to(vertical) {
     height: 200%;
-    padding: 20px;
+    padding: 100px 20px 20px;
     overflow-y: scroll;
 
     // iOS fix
@@ -26,10 +26,12 @@
 }
 
 .choice-item__wrapper {
+  
   @include respond-to(mobile-large) {
     max-height: 80%;
     overflow-y: scroll; // fix copy not fitting on small screens
   }
+
   @include respond-to(mobile-small) {
     max-height: 75%;
   }
@@ -78,7 +80,7 @@
 
 .choice-item .title--choice { // extra title when in vert
   width: 100%;
-  margin: 100px 0 40px;
+  margin-bottom: 40px;
 }
 
 /**

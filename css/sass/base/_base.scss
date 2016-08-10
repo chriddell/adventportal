@@ -26,10 +26,15 @@ body {
 }
 
 #main {
-  height: calc(100% - 85px); // allow for header
+  height: 100%; 
   width: 100%;
   position: relative;
-  top: 85px; // allow for header
+  top: 0;
+
+  @include respond-to(mobile-large) {
+    height: calc(100% - 85px); // allow for header
+    top: 85px; // allow for header
+  }
 }
 
 h1,

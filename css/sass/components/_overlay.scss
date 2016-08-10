@@ -4,7 +4,7 @@
 
 .overlay {
   position: fixed;
-  top: 85px; // allow for header
+  top: 0; // allow for header
   right: 0;
   left: 0;
   bottom: 0;
@@ -14,8 +14,9 @@
   z-index: 5;
   text-align: center;
 
-  @include respond-to(tablet) {
+  @include respond-to(vertical) {
     padding: 40px;
+    top: 85px; // allow for header
   }
 
   @include respond-to(mobile-small) {

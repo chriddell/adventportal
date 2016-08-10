@@ -177,3 +177,9 @@
 .shift-left .step__container--left .step--one__title {
   left: 0;
 }
+// Hide 'box-shadow' on last element of 'top' section -- stop the box-shadow bleeding through under header
+.step__container--left .step--two:last-of-type .bs--btm {
+  @include respond-to(vertical) {
+    display: none;
+  }
+}

@@ -5,6 +5,7 @@ var appBreakpoint = 900; // pixels to change app to vertical
 var shiftedClass = 'shift';
 var shiftedLeftClass = 'shift-left';
 var shiftedRightClass = 'shift-right';
+var globalHeader = '#global-header';
 
 var currentBrowserWidth; // set up global var to use in our resizestart and resizeend functions
 var browserWiderThanAppBreakpoint; // same as above
@@ -56,23 +57,23 @@ function closeOverlay(clicked) {
   // debouncing function from John Hann
   // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
   var debounce = function (func, threshold, execAsap) {
-      var timeout;
+    var timeout;
 
-      return function debounced () {
-          var obj = this, args = arguments;
-          function delayed () {
-              if (!execAsap)
-                  func.apply(obj, args);
-              timeout = null;
-          };
-
-          if (timeout)
-              clearTimeout(timeout);
-          else if (execAsap)
-              func.apply(obj, args);
-
-          timeout = setTimeout(delayed, threshold || 500);
+    return function debounced () {
+      var obj = this, args = arguments;
+      function delayed () {
+        if (!execAsap)
+          func.apply(obj, args);
+        timeout = null;
       };
+
+      if (timeout)
+        clearTimeout(timeout);
+      else if (execAsap)
+        func.apply(obj, args);
+
+      timeout = setTimeout(delayed, threshold || 500);
+    };
   }
   // resizeend 
   jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
@@ -87,12 +88,12 @@ function closeOverlay(clicked) {
 
   var startTrackOne    = '#track-one-start'; // assign trigger to var
   var startTrackTwo    = '#track-two-start'; // assign trigger to var
-  var resetTransforms  = '#reset'; // assign reset trigger
+  var resetTransforms  = '.reset-app'; // assign reset trigger
   var flipToRightTrigger = '.choice-item__cta--flip-sides--to-right';
   var flipToLeftTrigger = '.choice-item__cta--flip-sides--to-left';
 
   /**
-   * Desktop
+   * Horiztonal style
    */
   if ( browserWidth() > appBreakpoint ) {
 
@@ -192,7 +193,7 @@ function closeOverlay(clicked) {
     });
   
   /**
-   * Tablet(ish) / Mobile
+   * Vertical style
    */
   } else {
 
@@ -201,6 +202,7 @@ function closeOverlay(clicked) {
       var animateInClass = 'ani--float-in-down';
       var showActionsTrigger = '#show-ctas';
       var closeActionsTrigger = '#close-ctas';
+      var shiftAppTrigger = '.title__helper'; // this is the element which moves the app backwards between states
 
       /**
        * Start track one.
@@ -213,9 +215,14 @@ function closeOverlay(clicked) {
 
         });
 
+        // Add class to header (we're gonna change the bg color)
+        $(globalHeader).addClass(shiftedClass);
+
         $('.title__helper')
           .removeClass('hidden')
           .addClass(animateInClass);
+
+        $(shiftAppTrigger).addClass('nudge-one');
 
       });
 
@@ -230,9 +237,14 @@ function closeOverlay(clicked) {
 
         });
 
+        // Add class to header (we're gonna change the bg color)
+        $(globalHeader).addClass(shiftedClass);
+
         $('.title__helper')
           .removeClass('hidden')
-          .addClass(animateInClass); // SHow title
+          .addClass(animateInClass); // Show title
+
+        $(shiftAppTrigger).addClass('nudge-one');
 
       });
 
@@ -247,12 +259,49 @@ function closeOverlay(clicked) {
 
         });
 
+        // Remove class from header (change bg color back)
+        $(globalHeader).removeClass(shiftedClass);
+
+        // Hide 'How can a portal'
+        $('.title__helper')
+          .removeClass(animateInClass)
+          .addClass('hidden');
+
       });
 
       /**
-       * Reset to middle
+       * Move app backwards through states
+       *
        */
-      $('.title__helper').click(function(){
+      $(document).on('click', '.nudge-two-down', function(){
+
+        $('#main').css({
+
+          'transform': 'translateY(100%)'
+
+        });
+
+        $(this)
+          .removeClass('nudge-two-down')
+          .addClass('nudge-one');
+
+      });
+
+      $(document).on('click', '.nudge-two-up', function(){
+
+        $('#main').css({
+
+          'transform': 'translateY(-100%)'
+
+        });
+
+        $(this)
+          .removeClass('nudge-two-up')
+          .addClass('nudge-one');
+
+      });
+
+      $(document).on('click', '.nudge-one', function(){
 
         $('#main').css({
 
@@ -260,8 +309,12 @@ function closeOverlay(clicked) {
 
         });
 
-        $(this)
-          .removeClass(animateInClass)
+        // Remove class from header (change bg color back)
+        $(globalHeader).removeClass(shiftedClass);
+
+        // Hide 'How can a portal'
+        $('.title__helper')
+          .removeClass(animateInClass, 'nudge-one')
           .addClass('hidden');
 
       });
@@ -283,6 +336,11 @@ function closeOverlay(clicked) {
 
           });
 
+          // Add/remove class from trigger so app knows how much to shift when clicked
+          $(shiftAppTrigger)
+            .addClass('nudge-two-down')
+            .removeClass('nudge-one');
+
         } else {
 
           $('#main').css({
@@ -290,6 +348,11 @@ function closeOverlay(clicked) {
             'transform': 'translateY(-200%)'
 
           });
+
+          // Add/remove class from trigger so app knows how much to shift when clicked
+          $(shiftAppTrigger)
+            .addClass('nudge-two-up')
+            .removeClass('nudge-one');
 
         }
 
@@ -361,6 +424,10 @@ function closeOverlay(clicked) {
 
         });
 
+        $('.title__helper')
+          .removeClass('nudge-two-down')
+          .addClass('nudge-one');
+
       });
 
       $(flipToLeftTrigger).click(function(){
@@ -370,6 +437,10 @@ function closeOverlay(clicked) {
           'transform': 'translateY(100%)' // Go down
 
         });
+
+         $('.title__helper')
+          .removeClass('nudge-two-up')
+          .addClass('nudge-one');
 
       });
 

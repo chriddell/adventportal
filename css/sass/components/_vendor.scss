@@ -37,7 +37,8 @@
     font-size: 15px;
     line-height: 85px;
     height: 85px;
-    background-color:#FFFFFF;
+    background-color: #FFFFFF;
+    background-color: transparent;
     color: #999999;
     font-family: 'Lato', sans-serif;
     overflow: hidden;
@@ -49,6 +50,10 @@
     transition-property: background-color, height, line-height, padding-left, font-size, line-height;
     transition-duration: 0.4s;
     transition-timing-function: ease-in-out;
+
+    @include respond-to(vertical) {
+      background-color: $clr-six; // background color when in verticla mode
+    }
   }
 
   header.sticky {
@@ -70,7 +75,7 @@
     position: relative;
     display: inline-block;
     outline: none;
-    color: #999999;
+    color: #000000;
     padding-right:25px;
     text-decoration: none;
     text-transform: uppercase;
@@ -85,7 +90,11 @@
   header.sticky nav a:focus, 
   nav a.active, 
   header.sticky nav a.active {
-    color: #8CBBE4;
+    color: #000000;
+  }
+
+  .menu-is-open .cd-primary-nav-trigger {
+    color: #FFFFFF;
   }
 
   .header-inner {
@@ -175,7 +184,7 @@
     transform: translateX(-50%) translateY(-50%);
     width: 25px;
     height: 3px;
-    background-color: #0C85C7;
+    background-color: #000000;
     -webkit-transition: background-color 0.3s;
     -moz-transition: background-color 0.3s;
     transition: background-color 0.3s;
@@ -187,7 +196,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: #0C85C7;
+    background-color: #000000;
     right: 0;
     -webkit-transition: -webkit-transform .3s, top .3s, background-color 0s;
     -moz-transition: -moz-transform .3s, top .3s, background-color 0s;
@@ -451,5 +460,14 @@
 
   .align-right {
     text-align: right;
+  }
+}
+
+// Change header color when user 'shifts' the app
+#global-header.shift header {
+  background-color: #768494;
+
+  &.menu-is-open {
+    background-color: #0c85c7;
   }
 }
