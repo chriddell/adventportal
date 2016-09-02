@@ -11,13 +11,21 @@
 
   @include respond-to(vertical) {
     height: 200%;
-    padding: 100px 20px 20px;
+    padding: 120px 20px 20px;
     overflow-y: scroll;
 
     // iOS fix
     .ios & {
       height: 200%;
     }
+  }
+
+  @include respond-to(mobile-large) {
+    padding-top: 120px;
+  }
+
+  @include respond-to(mobile-small) {
+    padding-top: 80px;
   }
 
   @media only screen and (max-height: 769px) and (min-width: 1024px) {
@@ -80,7 +88,7 @@
 
 .choice-item .title--choice { // extra title when in vert
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 /**

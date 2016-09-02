@@ -53,11 +53,11 @@ $spriteList: (
   top: -6px;
 
   @include respond-to(vertical) {
-    top: -10px;
+    display: inline-block;
+    position: relative;
+    height: 48px;
+    width: 48px;
+    left: -14px;
+    top: 16px;
   } 
-}
-
-.choice-item__title .sprite--diamond,
-.choice-item__title .sprite--speech-bubbles {
-  left: -76px;
 }

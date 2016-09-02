@@ -1,7 +1,5 @@
 /* ==========================================================================
-   Components -> Lists
-
-   List styles.
+   Components -> Menus
    ========================================================================== */
 
 .step__menu {
@@ -67,7 +65,7 @@
  */
 .step__menu__item:first-child .title {
   @include respond-to(vertical) {
-    top: 66%; // Shift title down when in vertical appearance to allow for top title (How can a portal...)
+    top: 55%; // Shift title down when in vertical appearance to allow for top title (How can a portal...)
   }
 
   @include respond-to(mobile-small) {

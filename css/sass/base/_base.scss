@@ -31,9 +31,8 @@ body {
   position: relative;
   top: 0;
 
-  @include respond-to(mobile-large) {
+  @include respond-to(vertical) {
     height: calc(100% - 85px); // allow for header
-    top: 85px; // allow for header
   }
 }
 

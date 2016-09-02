@@ -427,12 +427,11 @@ body {
   width: 100%;
   position: relative;
   top: 0; }
-  @media (max-width: 767px) {
+  @media (max-width: 901px) {
     #main {
       height: -webkit-calc(100% - 85px);
       height: -moz-calc(100% - 85px);
-      height: calc(100% - 85px);
-      top: 85px; } }
+      height: calc(100% - 85px); } }
 
 h1,
 h2,
@@ -3075,6 +3074,7 @@ ul {
 .title__helper {
   width: 100%;
   top: 85px;
+  padding-bottom: 10px;
   text-align: center;
   background-image: url(../assets/img/border-bottom.png);
   -webkit-background-size: 100% 100%;
@@ -3085,11 +3085,16 @@ ul {
   cursor: pointer; }
   .title__helper:hover {
     text-decoration: underline; }
+  .title__helper:after {
+    content: '(Go back)';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 6px;
+    font-size: 14px; }
 
 /* ==========================================================================
-   Components -> Lists
-
-   List styles.
+   Components -> Menus
    ========================================================================== */
 .step__menu {
   padding: 0;
@@ -3139,7 +3144,7 @@ ul {
  */
 @media (max-width: 901px) {
   .step__menu__item:first-child .title {
-    top: 66%; } }
+    top: 55%; } }
 
 @media (max-width: 375px) {
   .step__menu__item:first-child .title {
@@ -3354,10 +3359,16 @@ ul {
   @media (max-width: 901px) {
     .choice-item {
       height: 200%;
-      padding: 100px 20px 20px;
+      padding: 120px 20px 20px;
       overflow-y: scroll; }
       .ios .choice-item {
         height: 200%; } }
+  @media (max-width: 767px) {
+    .choice-item {
+      padding-top: 120px; } }
+  @media (max-width: 375px) {
+    .choice-item {
+      padding-top: 80px; } }
   @media only screen and (max-height: 769px) and (min-width: 1024px) {
     .choice-item {
       overflow-y: scroll; } }
@@ -3407,7 +3418,7 @@ ul {
 
 .choice-item .title--choice {
   width: 100%;
-  margin-bottom: 40px; }
+  margin-bottom: 20px; }
 
 /**
  * Helpers
@@ -3524,11 +3535,12 @@ a.btn {
   top: -6px; }
   @media (max-width: 901px) {
     .choice-item__title .sprite {
-      top: -10px; } }
-
-.choice-item__title .sprite--diamond,
-.choice-item__title .sprite--speech-bubbles {
-  left: -76px; }
+      display: inline-block;
+      position: relative;
+      height: 48px;
+      width: 48px;
+      left: -14px;
+      top: 16px; } }
 
 /* ==========================================================================
    Components -> Vendor
@@ -3546,7 +3558,8 @@ a.btn {
   @media (max-width: 767px) {
     .mktoForm {
       width: 100% !important;
-      padding: 0 20px !important; } }
+      padding: 0 20px !important;
+      margin-top: 40px; } }
 
 /**
  * Header & Nav styling
@@ -3586,7 +3599,8 @@ a.btn {
             transition-timing-function: ease-in-out; }
     @media (max-width: 901px) {
       .investment-management header {
-        background-color: #7cc576; } }
+        background-color: #7cc576;
+        position: relative; } }
   .investment-management header.sticky {
     position: fixed;
     font-size: 13px;
@@ -3964,4 +3978,22 @@ a.btn {
 @media (max-width: 767px) {
   .smaller-text-mob {
     font-size: .9em; } }
+
+@media (max-width: 901px) {
+  .step__container--right .step__menu {
+    top: 30px; } }
+
+@media (max-width: 901px) {
+  .step__menu__item.bg-color-one:before {
+    content: '';
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    top: -200px;
+    left: 0;
+    z-index: -1; } }
+
+@media (max-width: 901px) {
+  .step__container--right .step--one {
+    z-index: 1; } }
 /*# sourceMappingURL=style.css.map */

@@ -368,15 +368,34 @@ function closeOverlay(clicked) {
         var currentBottomPos = 30; // starting position of trigger
 
         // Loop through sibling elements and move them up (manipulate CSS 'bottom' val)
-        for (var i = 0; i <= otherButtonsArray.length; i++) {
+        for (var i = otherButtonsArray.length - 1; i >= 0; i--) { // we minus 1 from oBA.length because .length does not account for element zero
 
-          var newBottomPos = currentBottomPos + (heightOfButton * (i + 1));
+          var newBottomPos = currentBottomPos + (heightOfButton * (otherButtonsArray.length - (i)));
+
+          /*
+          console.log('i = ' + i + '. ' + 'It\'s newBottomPos will be ' + newBottomPos);
+          console.log('This was worked out with these figures.');
+          console.log('currentBottomPos = ' + currentBottomPos);
+          console.log('heightOfButton = ' + heightOfButton);
+          console.log('otherButtonsArray.length = ' + otherButtonsArray.length);
+          */
 
           $(otherButtonsArray[i]).css({
             'bottom': newBottomPos + 'px'
           });
 
         }
+
+        /**
+         * Hide content which is behind the action buttons
+         */
+        $(this)
+          // Find content wrapper
+          .siblings('.choice-item__wrapper')
+          // animate opacity to 0
+          .animate({
+          'opacity': 0
+        });
 
         // Now modify the trigger elem
         $(this)
@@ -402,6 +421,17 @@ function closeOverlay(clicked) {
           });
 
         }
+
+        /**
+         * Show content which is behind the action buttons
+         */
+        $(this)
+          // Find content wrapper
+          .siblings('.choice-item__wrapper')
+          // animate opacity to 0
+          .animate({
+          'opacity': 1
+        });
 
         // Now modify the trigger elem
         $(this)
@@ -555,4 +585,4 @@ function closeOverlay(clicked) {
     }
   });
 
-})()
+})();

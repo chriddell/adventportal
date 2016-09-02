@@ -54,6 +54,7 @@
 .title__helper {
   width: 100%;
   top: 85px; // allow for header
+  padding-bottom: 10px;
   text-align: center;
   background-image: url(../assets/img/border-bottom.png);
   background-size: 100% 100%;
@@ -62,5 +63,14 @@
 
   &:hover {
     text-decoration: underline;
+  }
+
+  &:after {
+    content: '(Go back)';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 6px;
+    font-size: 14px;
   }
 }
